@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/josephpjacobi/lacava-studios-api#readme",
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
     "nodemon": "^2.0.14"
   },
   "dependencies": {
