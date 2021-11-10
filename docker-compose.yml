@@ -12,13 +12,13 @@ services:
         ports:
             # expose port 8080 on 8080
             - "8080:8080"
-    #         # "Our code exists at...."
-    #         volumes:
-    #             # Take everything in the directory of the docker compose, and mount it at /home/code/node
-    #             # This does not have to match the path to my local project. The path to my project is unique to my computer, not someone else who is running this code
-    #             - . :/home/node/code
-    #             # Treat node modules seperately, do not bring over node modules
-    #             - /home/node/code/node_modules
+        # "Our code exists at...."
+        # volumes:
+        #     # Take everything in the directory of the docker compose, and mount it at /home/code/node
+        #     # This does not have to match the path to my local project. The path to my project is unique to my computer, not someone else who is running this code
+        #     - . :/home/node/code
+        #     # Treat node modules seperately, do not bring over node modules
+        #     - /home/node/code/node_modules
     # These two containers need to talk to each other
     # links:
     #     - lacava_studios_pg_db

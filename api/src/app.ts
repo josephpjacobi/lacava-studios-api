@@ -9,7 +9,7 @@ export const app: Application = express();
 
 app.get("/products", async (req: Request, res: Response) => {
 	try {
-		res.send("Hello World");
+		res.send("Hello World!");
 	} catch (error) {
 		console.log("Error processing your request:", error);
 	}

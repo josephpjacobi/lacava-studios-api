@@ -4,7 +4,6 @@
 	"description": "Backend code for online marketplace and gallery for LaCava Studios by Caroline LaCava.",
 	"main": "api/src/server.ts",
 	"scripts": {
-		"start": "nodemon api/src/server.ts",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
