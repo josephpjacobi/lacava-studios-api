@@ -19,4 +19,4 @@ RUN npm ci
 COPY --chown=node:node . .
 
 # Run Dev server
-CMD [ "nodemon"]
+CMD [ "nodemon", "/api/src/server.ts", "0.0.0.0", "8080"]

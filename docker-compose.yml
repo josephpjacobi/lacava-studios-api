@@ -20,20 +20,20 @@ services:
         #     # Treat node modules seperately, do not bring over node modules
         #     - /home/node/lacava-backend/node_modules
         # These two containers need to talk to each other
-    #     links:
-    #         - lacava_db
-    #     environment:
-    #         PG_CONNECTION_STRING: postgres://db:lacavastudios
+        links:
+            - lacava_db
+        environment:
+            PG_CONNECTION_STRING: postgres://postgres:lacavastudios/postgres
 
-    # lacava_db:
-    #     # Downloads postgres image from DockerHub
-    #     image: postgres:13
-    #     restart: always
-    #     ports:
-    #         # Expose port 5432 on 5432
-    #         - "5432:5432"
-    #     # volumes:
-    #     #     - ./database/01_postgres_init.sql:/docker-entrypoint-initdb.d/01_postgres_init.sql
-    #     #     - ./database/02_postgres_data.sql:/docker-entrypoint-initdb.d/02_postgres_data.sql
-    #     environment:
-    #         - POSTGRES_PASSWORD=lacavastudios
+    lacava_db:
+        # Downloads postgres image from DockerHub
+        image: postgres:13
+        restart: always
+        ports:
+            # Expose port 5432 on 5432
+            - "5432:5432"
+        # volumes:
+        #     - ./database/01_postgres_init.sql:/docker-entrypoint-initdb.d/01_postgres_init.sql
+        #     - ./database/02_postgres_data.sql:/docker-entrypoint-initdb.d/02_postgres_data.sql
+        environment:
+            - POSTGRES_PASSWORD=lacavastudios
