@@ -1,32 +1,22 @@
-ARG PORT=8080
-# FROM node:14-alpine AS node
-
-FROM node:14-alpine
-# # Builder Stage
-# FROM node as Builder
+FROM node:16-stretch
 
 RUN npm i -g nodemon
 
-# RUN mkdir /home/node/code/backend
+USER node
+
+RUN mkdir /home/node/lacava-backend
 
 # Use /app/backend as the CWD
-WORKDIR /home/node/code/backend
+WORKDIR /home/node/lacava-backend
 
 # copy package.json and package-lock.json to /app/backend
-COPY package*.json /home/node/code/backend
+COPY --chown=node:node package-lock.json package.json ./
 
 # install dependencies 
-RUN npm install
+RUN npm ci
 
 # copy the rest of the code
-COPY . /home/node/code/backend
-
-# I don't have this command yet
-# Invoke the build script to transpile ts code to js
-# RUN npm run build 
-
-# Open desired port
-EXPOSE ${PORT}
+COPY --chown=node:node . .
 
 # Run Dev server
-CMD [ "nodemon", "./api/src/server.ts" ]
+CMD [ "nodemon"]

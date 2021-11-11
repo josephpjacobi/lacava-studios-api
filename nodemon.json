@@ -1,0 +1,6 @@
+{
+	"watch": ["./api/src", "./database"],
+	"ext": ".ts,.json,.tsx",
+	"ignore": ["./api/src/**/*.spec.ts", "./database/**/*.spec.ts"],
+	"exec": "ts-node ./api/src/server.ts"
+}

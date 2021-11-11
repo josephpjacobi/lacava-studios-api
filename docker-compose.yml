@@ -1,9 +1,9 @@
 # Define the version of docker compose
 version:
-    "3.6"
+    "3"
     # Define all the services/containers that Docker will spin up for us
 services:
-    lacava_studios_api:
+    lacava_be:
         # Tell Docker where the Dockerfile is for this service and where to build it
         # The command below is saying the DockerFile is here in the docker-compose file
         build:
@@ -14,26 +14,26 @@ services:
             - "8080:8080"
         # "Our code exists at...."
         # volumes:
-        #     # Take everything in the directory of the docker compose, and mount it at /home/code/node
+        #     # Take everything in the directory of the docker compose, and mount it at /home/node
         #     # This does not have to match the path to my local project. The path to my project is unique to my computer, not someone else who is running this code
-        #     - . :/home/node/code
+        #     - . :/home/node/lacava-backend
         #     # Treat node modules seperately, do not bring over node modules
-        #     - /home/node/code/node_modules
-    # These two containers need to talk to each other
-    # links:
-    #     - lacava_studios_pg_db
-    # environment:
-    #   PG_CONNECTION_STRING: ADD CONNECTION STRING
+        #     - /home/node/lacava-backend/node_modules
+        # These two containers need to talk to each other
+    #     links:
+    #         - lacava_db
+    #     environment:
+    #         PG_CONNECTION_STRING: postgres://db:lacavastudios
 
-    lacava_studios_pg_db:
-        # Downloads postgres image from DockerHub
-        image: postgres:13
-        restart: always
-        ports:
-            # Expose port 5432 on 5432
-            - "5432:5432"
-        # volumes:
-        #     - ./database/01_postgres_init.sql:/docker-entrypoint-initdb.d/01_postgres_init.sql
-        #     - ./database/02_postgres_data.sql:/docker-entrypoint-initdb.d/02_postgres_data.sql
-        environment:
-            - POSTGRES_PASSWORD=password
+    # lacava_db:
+    #     # Downloads postgres image from DockerHub
+    #     image: postgres:13
+    #     restart: always
+    #     ports:
+    #         # Expose port 5432 on 5432
+    #         - "5432:5432"
+    #     # volumes:
+    #     #     - ./database/01_postgres_init.sql:/docker-entrypoint-initdb.d/01_postgres_init.sql
+    #     #     - ./database/02_postgres_data.sql:/docker-entrypoint-initdb.d/02_postgres_data.sql
+    #     environment:
+    #         - POSTGRES_PASSWORD=lacavastudios

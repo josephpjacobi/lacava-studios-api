@@ -2,8 +2,9 @@
 	"name": "lacava-studios-backend",
 	"version": "1.0.0",
 	"description": "Backend code for online marketplace and gallery for LaCava Studios by Caroline LaCava.",
-	"main": "api/src/server.ts",
+	"main": "/api/src/server.ts",
 	"scripts": {
+		"start": "nodemon",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
