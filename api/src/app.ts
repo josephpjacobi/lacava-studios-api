@@ -17,7 +17,7 @@ app.get("/products", async (req: Request, res: Response) => {
 
 app.get("/db", async (req: Request, res: Response) => {
 	try {
-		db.query("SELECT *");
+		await db.query("SELECT * FROM products");
 	} catch (error) {
 		console.log("Error processing your request:", error);
 	}
