@@ -1,6 +1,6 @@
 # Define the version of docker compose
 version:
-    "3"
+    "3.7"
     # Define all the services/containers that Docker will spin up for us
 services:
     lacava_be:
