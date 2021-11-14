@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS orders (
   buyerEmail TEXT,
   buyerAddress TEXT,  -- Can this be an object?
   products TEXT, -- array of product id's
-  total INTEGER
+  total INTEGER,
   PRIMARY KEY (id)
 );
 
@@ -31,11 +31,11 @@ CREATE TABLE IF NOT EXISTS orders (
 CREATE TABLE IF NOT EXISTS product_views (
   id serial NOT NULL, 
   product_id INTEGER, -- fk
-  created_at TIMESTAMP with time zone
-  PRIMARY KEY(id)
+  created_at TIMESTAMP with time zone,
+  PRIMARY KEY(id),
   CONSTRAINT fk_product
     FOREIGN KEY(product_id)
-      REFERENCES product(id)
+      REFERENCES products(id)
   -- FOREIGN KEY(product_id) REFERENCES product(id)
 );
 
