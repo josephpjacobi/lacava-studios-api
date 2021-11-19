@@ -33,7 +33,9 @@ services:
             # Expose port 5432 on 5432
             - "5432:5432"
         volumes:
-            - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+            # added a named volume
+            - /var/lib/postgresql/data
+            # - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
         #     - ./database/02_postgres_data.sql:/docker-entrypoint-initdb.d/02_postgres_data.sql
         environment:
             - POSTGRES_PASSWORD=lacavastudios
